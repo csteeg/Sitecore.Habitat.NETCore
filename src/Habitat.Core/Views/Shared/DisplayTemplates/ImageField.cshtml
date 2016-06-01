@@ -1,0 +1,2 @@
+﻿@model BoC.CmsHelpers.Abstraction.Models.ImageField
+<img src="@Url.Action("Media", "Home", new { mediaUrl= Model.Src, mediaId = Model.MediaId})" alt="@Model.Alt" height="@Model.Height" width="@Model.Width" />

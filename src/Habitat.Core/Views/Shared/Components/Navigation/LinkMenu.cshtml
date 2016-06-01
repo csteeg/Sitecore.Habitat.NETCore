@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Habitat.Core.ViewModels.Navigation.NavigationItem>
+
+@{
+    if (Model == null || !Model.Any())
+    {
+        return;
+    }
+}
+<nav>
+  <ul class="nav nav-service navbar-nav nav-pills">
+    @foreach (var item in Model)
+    {
+        <li class="@(item.DividerBefore ? "divider-left" : "")">
+            @Html.DisplayFor(model => item)
+        </li>
+    }
+  </ul>
+</nav>

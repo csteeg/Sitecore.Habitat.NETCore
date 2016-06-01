@@ -1,0 +1,19 @@
+﻿@model Habitat.Core.ViewModels.Navigation.NavigationItem
+@{
+    if (Model?.Children == null || !Model.Children.Any())
+    {
+        @*TODO: @Html.Sitecore().PageEditorError(DictionaryRepository.Get("/Navigation/SecondaryMenu/No menu items", "No menu items found"))*@
+        @:No menu items found
+        return;
+}
+}
+
+<h4>
+    <a href="@Model.Url" target="@Model.Target" cms-display-property="NavigationTitle" />
+</h4>
+<div class="sidebar sidebar-static">
+    @if (Model.Children != null)
+    {
+        @Html.Partial("Components/Navigation/_SecondaryMenuItems", Model.Children)
+    }
+</div>

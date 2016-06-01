@@ -1,0 +1,20 @@
+﻿@*@using Sitecore.Feature.PageContent
+@using Sitecore.Foundation.SitecoreExtensions.Extensions
+@model Sitecore.Mvc.Presentation.RenderingModel
+    
+    //TODO: get image from page? 
+
+@if (Html.Sitecore().HasValue(Templates.HasPageContent.Fields.Image.ToString()))
+{
+  var image = Model.Item.ImageUrl(Templates.HasPageContent.Fields.Image);
+  <header class="page-header bg-media bg-parallax" style="background-image: url('@image')">
+    @Html.Sitecore().Placeholder("page-header")
+  </header>
+}
+else
+{*@
+<header class="page-header">
+    <cms-placeholder name="page-header" />
+</header>
+@*}*@
+

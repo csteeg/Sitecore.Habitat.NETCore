@@ -1,0 +1,26 @@
+﻿@using System.Threading.Tasks
+@using Habitat.Core.Repositories.Faq
+@inject IGroupMemberRepository FaqService
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    @foreach (var item in FaqService.Get(((Guid)Model.ItemID)))
+    {
+        var ID = Guid.NewGuid().ToString();
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingcollapse0">
+                <div class="panel-title">
+                    <a role="button" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#@ID">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        @Html.DisplayTextFor(m => item.Question)
+                    </a>
+                </div>
+            </div>
+            <div id=@ID class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingcollapse0">
+                <div class="panel-body">
+                    @Html.Raw(Html.DisplayTextFor(m => item.Answer))
+                </div>
+            </div>
+        </div>
+
+    <!-- /.panel -->
+    }
+</div>

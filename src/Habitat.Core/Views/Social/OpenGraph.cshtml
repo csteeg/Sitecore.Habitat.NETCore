@@ -1,0 +1,10 @@
+﻿@*TODO: @if (!Model?.Item?.IsDerived(Templates.OpenGraph.ID) ?? true)
+{
+  @Html.PageEditorError(AlertTexts.InvalidDataSourceTemplate(Templates.OpenGraph.ID), AlertTexts.InvalidDataSourceTemplateFriendlyMessage, Model.Item?.ID, Model.Rendering.Item?.ID)
+  return;
+}*@
+
+<meta property="og:title" content="@Model.OpenGraphTitle"/>
+<meta property="og:image" content="@Model.OpenGraphImage"/>
+<meta property="og:description" content="@Model.OpenGraphDescription"/>
+<meta property="og:url" content="@Model.ItemUrl"/>

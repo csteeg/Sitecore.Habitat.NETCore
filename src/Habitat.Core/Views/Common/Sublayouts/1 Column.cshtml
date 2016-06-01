@@ -1,0 +1,8 @@
+﻿@{ var useStaticPlaceholderNames = ViewBag.RenderingParameters == null || ViewBag.RenderingParameters.UseStaticPlaceholderNames != true; }
+<div class="container@(ViewBag?.RenderingParameters?.IsFluid == true ? "-fluid" : "" )">
+  <div class="row">
+    <div class="col-md-12">
+      <cms-placeholder name="col-huge" isdynamic="@(!useStaticPlaceholderNames)" />
+    </div>
+  </div>
+</div>

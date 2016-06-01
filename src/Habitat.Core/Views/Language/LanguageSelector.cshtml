@@ -1,0 +1,27 @@
+﻿@using System.Threading.Tasks
+@using Microsoft.Extensions.Options
+@using Sitecore.Feature.Language.Infrastructure.Repositories
+@using BoC.CmsHelpers.Sitecore;
+@inject ILanguageRepository LanguageRepository
+@inject IOptions<ApiSettings> ApiSettings
+@{
+    var languages = await LanguageRepository.GetSupportedLanguages(ApiSettings.Value.ScSiteName);
+    if (languages.Count() <= 1)
+    {
+        return;
+    }
+}
+<li class="dropdown">
+  <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-globe"></i>
+  </a>
+  <ul class="dropdown-menu">
+    @foreach (var language in languages)
+    {
+      var cssClass = (language.Iso == Model?.ItemLanguage?.ToString() ? "active" : "");
+      <li class="@cssClass">
+        <a href="/@language.Name@Model?.ItemUrlExpanded">@language.CultureInfo.NativeName</a>
+      </li>
+    }
+  </ul>
+</li>

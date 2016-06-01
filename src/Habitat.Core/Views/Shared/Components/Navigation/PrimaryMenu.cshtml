@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Habitat.Core.ViewModels.Navigation.NavigationItem>
+
+<div class="collapse navbar-collapse" id="siteNavbar">
+  <ul class="nav navbar-nav">
+      @foreach (var item in Model)
+      {
+        var hasChildren = item.Children != null && item.Children.Any();
+        var cssClass = "";
+        if (hasChildren)
+        {
+          cssClass += " dropdown";
+        }
+
+        <li class="@cssClass">
+          @if (hasChildren)
+          {
+              <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" 
+                 cms-display-for="@(m => item.NavigationTitle)"><span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              @foreach (var subitem in item.Children)
+            {
+                <li>
+                    <a href="@subitem.Url" target="@subitem.Target" cms-display-for="@(m => subitem.NavigationTitle)" />
+                </li>
+              }
+            </ul>
+          }
+          else
+          {
+              <a class="text-uppercase" href="@item.Url" target="@item.Target" cms-display-for="@(m => item.NavigationTitle)"/>
+          }
+        </li>
+      }
+    
+  </ul>
+</div>

@@ -1,0 +1,27 @@
+﻿@using Habitat.Core.Repositories.Metadata
+@inject IMetadataRepository MetadataRepository
+@*TODO: @if (!Model?.Item?.IsDerived(Templates.PageMetadata.ID) ?? true)
+{
+  @Html.PageEditorError(AlertTexts.InvalidDataSourceTemplate(Templates.PageMetadata.ID), AlertTexts.InvalidDataSourceTemplateFriendlyMessage, Model.Item?.ID, Model.Rendering.Item?.ID)
+  return;
+}*@
+
+
+@*TODO: Fall back to Title / DisplayName etc*@
+@{
+  //TODO Mode to Controller Rendering
+  var siteMetadata = await MetadataRepository.Get((Guid)Model.ItemID);
+  if (siteMetadata == null)
+  {
+    return;
+  }
+}
+<title>@Model.BrowserTitle @siteMetadata.SiteBrowserTitle</title>
+<meta name="keywords" content="@String.Join(",", await MetadataRepository.GetKeywords((Guid)Model.ItemID))"/>
+<meta name="description" content="@Model.Description"/>
+@{
+  if (Model.CanIndex == false)
+  {
+    <meta name="robots" content="noindex"/>
+  }
+}

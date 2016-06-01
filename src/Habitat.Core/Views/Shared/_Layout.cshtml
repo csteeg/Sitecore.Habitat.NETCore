@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Http.Extensions
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <cms-placeholder name="head" />
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" boc-include-server-url="true" />
+        <link rel="stylesheet" asp-href-include="~/css/site.css,~/css/vendor.css,~/css/niteflight.css" boc-include-server-url="true" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+              boc-include-server-url="true"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+        <link rel="stylesheet" boc-include-server-url="true" href="~/css/site.min.css" asp-append-version="true"/>
+        <link rel="stylesheet" boc-include-server-url="true" href="~/css/vendor.min.css" />
+        <link rel="stylesheet" boc-include-server-url="true" href="~/css/niteflight.min.css" />
+    </environment>
+
+</head>
+<body class="header-static">
+    <div id="main-container">
+        <header class="header-static">
+            <cms-placeholder name="header-top" />
+            
+            <cms-placeholder name="navbar" />
+        </header>
+        <main role="main">
+            <cms-placeholder name="page-layout" />
+        </main>
+        <footer>
+            <cms-placeholder name="footer" />
+        </footer>
+        @RenderBody()
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    <script src="~/js/disable-wffm-bootstrap.js" asp-append-version="true"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

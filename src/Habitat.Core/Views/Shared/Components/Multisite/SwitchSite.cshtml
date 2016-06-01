@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Sitecore.Foundation.Multisite.SiteDefinition>
+
+@{
+  if (Model.Count() <= 1)
+  {
+    return;
+  }
+  var currentSite = (Model.FirstOrDefault(m => m.IsCurrent)?.Name ?? this.Context.Request?.Host + "");
+}
+
+<li class="dropdown hidden-xs">
+  <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" title="@currentSite">
+    <i class="fa fa-home"></i>
+  </a>
+  <ul class="dropdown-menu">
+    @foreach (var site in Model)
+    {
+      var cssClass = (site.IsCurrent ? "active" : "");
+      <li class="@cssClass">
+        <a href="@site.Url">@site.Title</a>
+      </li>
+    }
+  </ul>
+</li>

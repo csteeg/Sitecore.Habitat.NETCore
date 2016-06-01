@@ -1,0 +1,11 @@
+﻿@model Habitat.Core.ViewModels.Navigation.NavigationItem
+<a href="@(Model.Link?.Url ?? Model.Url)" target="@(Model.Link?.Target ?? Model.Target)" title="@(Model.Link?.Title ?? Model.NavigationTitle)">
+    @if (!string.IsNullOrWhiteSpace(Model.Icon))
+    {
+        <i class="fa fa-@Model.Icon"></i>
+    }
+    else
+    {
+        <cms-display cms-display-for="@(m => Model.NavigationTitle)" />
+    }
+</a>

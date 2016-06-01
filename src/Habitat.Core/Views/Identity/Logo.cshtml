@@ -1,0 +1,19 @@
+﻿@using System.Threading.Tasks
+@using Habitat.Core.Repositories.Identity
+@inject IIdentityRepository IdentityRepository
+@{
+  var identity = await IdentityRepository.Get((Guid)Model.ItemID);
+  if (identity == null)
+  {
+    return;
+  }
+  //TODO: Resolve context site from item (implement in Foundation.Multisite)
+  //var homeUrl = Sitecore.Context.Site?.GetStartItem()?.GetUrl() ?? "/";
+}
+
+<a class="navbar-brand" href="/">
+    <span class="logo">
+        <cms-display cms-display-for="@(m => identity.Logo)" />
+    <!-- TODO: add tagline field to logo, add .has-tagline to .logo <small class="tagline">Niteflight</small> -->
+  </span>
+</a>

@@ -1,0 +1,15 @@
+﻿@*//TODO: test this?
+    @if (!Model?.Item?.IsDerived(Templates.HasPageContent.ID) ?? true)
+{
+  @Html.PageEditorError(AlertTexts.InvalidDataSourceTemplate(Templates.HasPageContent.ID), AlertTexts.InvalidDataSourceTemplateFriendlyMessage, Model.Item?.ID, Model.Rendering.Item?.ID)
+  return;
+}*@
+@model Newtonsoft.Json.Linq.JObject
+<header>
+    <h1 cms-display-property="Title"/>
+
+    @if (!string.IsNullOrEmpty(Model["Summary"] + ""))
+    {
+        <div class="lead" cms-display-property="Summary" cms-display-asHtml="true" />
+    }
+</header>
