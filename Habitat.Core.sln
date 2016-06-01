@@ -16,7 +16,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BoC.CmsHelpers.Sitecore", "
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BoC.CmsHelpers.Abstraction", "src\BoC.CmsHelpers.Abstraction\BoC.CmsHelpers.Abstraction.xproj", "{6E1E1D9B-85CA-4326-A8F5-F48EB053B12B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoC.Sitecore.ApiExtensions", "BoC.Sitecore.ApiExtensions\BoC.Sitecore.ApiExtensions.csproj", "{AB7BD8A1-A52E-40DE-B5B0-E233066A9F0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoC.Sitecore.ApiExtensions", "src\BoC.Sitecore.ApiExtensions\BoC.Sitecore.ApiExtensions.csproj", "{AB7BD8A1-A52E-40DE-B5B0-E233066A9F0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

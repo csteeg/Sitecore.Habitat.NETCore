@@ -2,7 +2,7 @@
 using Sitecore.Diagnostics;
 using Sitecore.Mvc.Pipelines.Request.CreateController;
 
-namespace BoC.Sitecore.ApiExtensions
+namespace BoC.Sitecore.ApiExtensions.Pipelines
 {
     public class CreateDefaultController : CreateControllerProcessor
     {

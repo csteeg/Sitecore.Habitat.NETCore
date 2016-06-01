@@ -109,15 +109,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateDefaultController.cs" />
-    <Compile Include="GetViewOrUrlRenderer.cs" />
+    <Compile Include="Pipelines\CreateDefaultController.cs" />
+    <Compile Include="Pipelines\GetViewOrUrlRenderer.cs" />
     <Compile Include="ItemModelFiterAction.cs" />
     <Compile Include="JsonSitecoreController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SitecoreClientServicesEnrichments.cs" />
+    <Compile Include="Pipelines\RegisterSitecoreClientServicesEnrichments.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App_Config\zzzLast\Sitecore.Services.Client.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
