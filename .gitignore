@@ -222,3 +222,6 @@ Src/Websites/IrelandOffTrade/css/core.css.map
 Src/Websites/IrelandOffTrade/css/core.min.css
 Src/Websites/IrelandOffTrade/css/core.min.css.map
 Scripts/Build/Grunt/npm/node.exe
+packages/*
+src/Habitat.Core/node_modules/
+src/Habitat.Core/wwwroot/lib/

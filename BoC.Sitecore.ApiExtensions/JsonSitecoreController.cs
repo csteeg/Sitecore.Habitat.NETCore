@@ -47,7 +47,7 @@ namespace BoC.Sitecore.ApiExtensions
 
         public JsonSitecoreController() : base()
         {
-            _modelFactory = new ModelFactory();//TODO get through factory.create
+            _modelFactory = new ModelFactory();
         }
 
         protected override ActionResult GetDefaultAction()
