@@ -18,7 +18,7 @@ using ActionFilterAttribute = System.Web.Http.Filters.ActionFilterAttribute;
 
 namespace BoC.Sitecore.ApiExtensions
 {
-    public class ItemModelFiterAction : ActionFilterAttribute
+    public class ItemModelActionFilter : ActionFilterAttribute
     {
         public override Task OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken)
         {

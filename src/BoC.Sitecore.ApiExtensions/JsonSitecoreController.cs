@@ -151,7 +151,7 @@ namespace BoC.Sitecore.ApiExtensions
                 IncludeStandardTemplateFields = includeStandardTemplateFields
             });
             if (enrich)
-                ItemModelFiterAction.EnrichItemModel(model, defaultLanguage, includeEditMode);
+                ItemModelActionFilter.EnrichItemModel(model, defaultLanguage, includeEditMode);
             return model;
         }
     }
