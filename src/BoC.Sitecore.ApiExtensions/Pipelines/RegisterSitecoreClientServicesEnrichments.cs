@@ -7,7 +7,7 @@ namespace BoC.Sitecore.ApiExtensions.Pipelines
     {
         public void Process(PipelineArgs args)
         {
-            GlobalConfiguration.Configuration.Filters.Add(new ItemModelFiterAction());
+            GlobalConfiguration.Configuration.Filters.Add(new ItemModelActionFilter());
         }
     }
 }

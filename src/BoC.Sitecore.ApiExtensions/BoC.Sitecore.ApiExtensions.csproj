@@ -111,7 +111,7 @@
   <ItemGroup>
     <Compile Include="Pipelines\CreateDefaultController.cs" />
     <Compile Include="Pipelines\GetViewOrUrlRenderer.cs" />
-    <Compile Include="ItemModelFiterAction.cs" />
+    <Compile Include="ItemModelActionFilter.cs" />
     <Compile Include="JsonSitecoreController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pipelines\RegisterSitecoreClientServicesEnrichments.cs" />
